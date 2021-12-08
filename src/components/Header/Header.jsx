@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import s from './Header.module.scss';
 
-const Header = ({ children, title }) => {
+const Header = ({ state }) => {
   return (
     <header>
       <section className={s.Section}>
-        <div className={s.Container}>{children}</div>
+        <div className='Svg'></div>
+     <button type='button'></button>
       </section>
     </header>
   );
