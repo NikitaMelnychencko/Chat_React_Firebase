@@ -1,4 +1,15 @@
-// //getId
+import {
+  getDatabase,
+  ref,
+  set,
+  get,
+  child,
+  update,
+  remove,
+} from 'firebase/database';
+import { db, dbRef } from './Init';
+
+//getId
 // export async function getIdUser(userId, store, id) {
 //   return await get(child(dbRef, 'users/' + userId + '/' + store + '/' + id))
 //     .then(snapshot => {
@@ -13,34 +24,33 @@
 //     });
 // }
 
-// // get
-// export async function getUser(userId, store) {
-//   let value = await get(child(dbRef, 'users/' + userId + '/' + store))
-//     .then(snapshot => {
-//       if (snapshot.exists()) {
-//         return snapshot.val();
-//       } else {
-//         return null;
-//       }
-//     })
-//     .catch(() => renderErrorServer());
-//   let arr = [];
-//   for (let key in value) {
-//     arr.push(JSON.parse(value[key]).objService);
-//   }
-//   return arr;
-// }
-
-// // Post
-// export async function postUserData(userId, store, idFilm, markupFilm) {
-//   if (userId === null) {
-//     return;
-//   }
-//   return await set(
-//     ref(db, 'users/' + userId + '/' + store + '/' + idFilm),
-//     markupFilm,
-//   );
-// }
+// get
+export async function getUser() {
+  let value = await get(child(dbRef, 'message/'))
+    .then(snapshot => {
+      if (snapshot.exists()) {
+        return snapshot.val();
+      } else {
+        return null;
+      }
+    })
+    .catch();
+  let arr = [];
+  console.log(arr);
+  for (let key in value) {
+    arr.push(value[key]);
+  }
+  return arr;
+}
+const test = getUser();
+test.then(data => console.log(data));
+// Post
+export async function postUserData(userId, idMess, markupMess) {
+  if (userId === null) {
+    return;
+  }
+  return await set(ref(db, 'message/' + userId + idMess), markupMess);
+}
 
 // //delete
 // export async function deleteData(userId, store, idFilm) {
