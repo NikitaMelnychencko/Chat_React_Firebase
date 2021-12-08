@@ -1,13 +1,16 @@
 import PropTypes from 'prop-types';
 import s from './Header.module.scss';
+import { PureComponent } from 'react';
 
-const Header = ({ state }) => {
+const Header = ({ status, onClick }) => {
   return (
-    <header>
-      <section className={s.Section}>
-        <div className='Svg'></div>
-     <button type='button'></button>
-      </section>
+    <header className={s.header}>
+      <div className={s.container}>
+        <div className={s[status]}></div>
+        <button type="s.button" className={s.button} onClick={onClick}>
+          <p>LogIn</p>
+        </button>
+      </div>
     </header>
   );
 };

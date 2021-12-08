@@ -1,0 +1,39 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1200;
+}
+
+.modal {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+  background-color: honeydew;
+}
+
+.button {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+
+  margin-left: auto;
+  padding: 5px 10px;
+  background-color: inherit;
+  border: inherit;
+  color: orange;
+  &:focus,
+  &:hover {
+    background-color: khaki;
+  }
+}
+
+.content {
+}
