@@ -16,16 +16,15 @@ import {
   update,
   remove,
 } from 'firebase/database';
+
 const firebaseConfig = {
-  apiKey: 'AIzaSyCrhBW63SM95ZUKCf6EsxC1CtzGhzdJBtQ',
-  authDomain: 'goit-js10-films-library.firebaseapp.com',
-  databaseURL:
-    'https://goit-js10-films-library-default-rtdb.europe-west1.firebasedatabase.app/',
-  projectId: 'goit-js10-films-library',
-  storageBucket: 'goit-js10-films-library.appspot.com',
-  messagingSenderId: '365608496961',
-  appId: '1:365608496961:web:88f6a83f1a1fc4849dfbc0',
-  measurementId: 'G-5Z0M6YF9RQ',
+  apiKey: "AIzaSyB2GhFkUipTzzgiF4QxbwvvRTipNdBzZQk",
+  authDomain: "chat-react-firebase-nande.firebaseapp.com",
+  databaseURL: "https://chat-react-firebase-nande-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "chat-react-firebase-nande",
+  storageBucket: "chat-react-firebase-nande.appspot.com",
+  messagingSenderId: "733483402422",
+  appId: "1:733483402422:web:b46958be6ebde37b181217"
 };
 
 const app = initializeApp(firebaseConfig);
