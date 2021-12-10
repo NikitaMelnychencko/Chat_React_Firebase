@@ -66,12 +66,22 @@ class Modal extends PureComponent {
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSubmit(this.state);
-    this.reset();
+    // this.reset();
+    console.log(this.state);
+    const emailValue = this.state.email;
+    const passValue = this.state.pass;
+    const nameValue = this.state.name;
+    regUser(emailValue, passValue);
+    updateInUser(nameValue);
+    AuthState(user);
   };
 
-  reset = () => {
-    this.setState({ name: '', number: '' });
-  };
+  // reset = () => {
+  //   this.setState({
+  //   name: '',
+  //   email: '',
+  //   pass: '', });
+  // };
 
   render() {
     return createPortal(
@@ -104,7 +114,7 @@ class Modal extends PureComponent {
                 pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
                 required
                 value={this.state.email}
-                onChange={this.handleNameChange}
+                onChange={this.handleChange}
               />
             </label>
             <label className="">
@@ -116,7 +126,7 @@ class Modal extends PureComponent {
                 required
                 minlength="5"
                 value={this.state.pass}
-                onChange={this.handleNameChange}
+                onChange={this.handleChange}
               />
             </label>
             <button type="submit" className="" aria-label="sign up">
