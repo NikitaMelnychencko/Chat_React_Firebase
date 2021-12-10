@@ -44,6 +44,7 @@ export function signInUser(email, password) {
 }
 
 export function updateInUser(name) {
+  // console.log(auth.currentUser);
   return updateProfile(auth.currentUser, {
     displayName: `${name}`,
   });
@@ -62,7 +63,7 @@ export async function signOutUser() {
 export async function AuthState(user) {
   return await onAuthStateChanged(auth, user => {
     if (user) {
-      userId = user.uid;
+      const userId = user.uid;
       return sessionStorage.setItem('userId', `${userId}`);
     } else {
       return;

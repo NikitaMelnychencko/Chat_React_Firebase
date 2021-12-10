@@ -76,7 +76,7 @@ class Modal extends PureComponent {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit(this.state);
+    // this.props.onSubmit(this.state);
     // this.reset();
     //   const formData = new FormData(e.currentTarget);
     // const emailValue = formData.get('email');
@@ -85,6 +85,7 @@ class Modal extends PureComponent {
     const emailValue = this.state.email;
     const passValue = this.state.pass;
     const nameValue = this.state.name;
+    // console.log(nameValue);
 
     if (this.state.sigin) {
       signInUser(emailValue, passValue);
@@ -104,26 +105,26 @@ class Modal extends PureComponent {
   // };
 
   render() {
-    let onAuthPage;
+    // let onAuthPage;
 
-    if (this.state.sigin) {
-      onAuthPage = (
-        <SinIn
-          email={this.state.email}
-          pass={this.state.pass}
-          onChange={this.handleChange}
-        ></SinIn>
-      );
-    } else {
-      onAuthPage = (
-        <SinUp
-          name={this.state.name}
-          email={this.state.email}
-          pass={this.state.pass}
-          onChange={this.handleChange}
-        ></SinUp>
-      );
-    }
+    // if (this.state.sigin) {
+    //   onAuthPage = (
+    //     <SinIn
+    //       email={this.state.email}
+    //       pass={this.state.pass}
+    //       onChange={this.handleChange}
+    //     ></SinIn>
+    //   );
+    // } else {
+    //   onAuthPage = (
+    //     <SinUp
+    //       name={this.state.name}
+    //       email={this.state.email}
+    //       pass={this.state.pass}
+    //       onChange={this.handleChange}
+    //     ></SinUp>
+    //   );
+    // }
 
     return createPortal(
       <div className={s.overlay} onClick={this.handleBackdropClick}>
@@ -140,7 +141,23 @@ class Modal extends PureComponent {
             >
               {/* <closeIcon width="40" height="40" /> */}
             </button>
-            <div>{onAuthPage}</div>
+            {/* <div>{onAuthPage}</div> */}
+            <div>
+              {this.state.sigin ? (
+                <SinIn
+                  email={this.state.email}
+                  pass={this.state.pass}
+                  onChange={this.handleChange}
+                ></SinIn>
+              ) : (
+                <SinUp
+                  name={this.state.name}
+                  email={this.state.email}
+                  pass={this.state.pass}
+                  onChange={this.handleChange}
+                ></SinUp>
+              )}
+            </div>
             <button
               type="button"
               className={s.closebtn}
