@@ -14,32 +14,63 @@ import { user } from '../../firebaseServise/Init';
 const modalRoot = document.querySelector('#modal-root');
 
 class Modal extends PureComponent {
+  state = {
+    name: '',
+    email: '',
+    pass: '',
+  };
+
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown);
   }
+
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyDown);
   }
+
   handleKeyDown = e => {
     if (e.code === 'Escape') {
       this.props.onClose(null, null);
     }
   };
+
   handleBackdropClick = e => {
     if (e.currentTarget === e.target) {
       this.props.onClose(null, null);
     }
   };
 
-  sendForm = e => {
+  //   sendForm = e => {
+  //     e.preventDefault();
+  //     const formData = new FormData(e.currentTarget);
+  //     const emailValue = formData.get('email');
+  //     const passValue = formData.get('pass');
+  //     const nameValue = formData.get('name');
+  //     regUser(emailValue, passValue);
+  //     updateInUser(nameValue);
+  //     AuthState(user);
+  //   };
+
+  // handleNameChange = e => {
+  //     const value = e.curretTarger.name;
+  //     console.log(value);
+  //   this.setState({ [value]: e.currentTarget.value.toLowerCase() });
+  // };
+  handleChange = e => {
+    const { name, value } = e.currentTarget;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  handleSubmit = e => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const emailValue = formData.get('email');
-    const passValue = formData.get('pass');
-    const nameValue = formData.get('name');
-    regUser(emailValue, passValue);
-    updateInUser(nameValue);
-    AuthState(user);
+    this.props.onSubmit(this.state);
+    this.reset();
+  };
+
+  reset = () => {
+    this.setState({ name: '', number: '' });
   };
 
   render() {
@@ -59,6 +90,8 @@ class Modal extends PureComponent {
                 id="singup-name"
                 required
                 className=""
+                value={this.state.name}
+                onChange={this.handleChange}
               />
             </label>
             <label className="">
@@ -70,6 +103,8 @@ class Modal extends PureComponent {
                 title="***@mail.com"
                 pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
                 required
+                value={this.state.email}
+                onChange={this.handleNameChange}
               />
             </label>
             <label className="">
@@ -80,6 +115,8 @@ class Modal extends PureComponent {
                 className=""
                 required
                 minlength="5"
+                value={this.state.pass}
+                onChange={this.handleNameChange}
               />
             </label>
             <button type="submit" className="" aria-label="sign up">
