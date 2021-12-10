@@ -9,6 +9,9 @@ import {
   updateInUser,
 } from '../../firebaseServise/log_in_out';
 import { user } from '../../firebaseServise/Init';
+import SinIn from './SinIn';
+import SinUp from './SinUp';
+
 // import { ReactComponent as closeIcon } from '../icons/closeIcon.svg';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -18,6 +21,7 @@ class Modal extends PureComponent {
     name: '',
     email: '',
     pass: '',
+    sigin: true,
   };
 
   componentDidMount() {
@@ -40,6 +44,12 @@ class Modal extends PureComponent {
     }
   };
 
+  changeModal = () => {
+    this.setState(({ sigin }) => ({
+      sigin: !sigin,
+    }));
+  };
+
   //   sendForm = e => {
   //     e.preventDefault();
   //     const formData = new FormData(e.currentTarget);
@@ -56,6 +66,7 @@ class Modal extends PureComponent {
   //     console.log(value);
   //   this.setState({ [value]: e.currentTarget.value.toLowerCase() });
   // };
+
   handleChange = e => {
     const { name, value } = e.currentTarget;
     this.setState({
@@ -67,13 +78,22 @@ class Modal extends PureComponent {
     e.preventDefault();
     this.props.onSubmit(this.state);
     // this.reset();
-    console.log(this.state);
+    //   const formData = new FormData(e.currentTarget);
+    // const emailValue = formData.get('email');
+    // const passValue = formData.get('pass');
+    // const nameValue = formData.get('name');
     const emailValue = this.state.email;
     const passValue = this.state.pass;
     const nameValue = this.state.name;
-    regUser(emailValue, passValue);
-    updateInUser(nameValue);
-    AuthState(user);
+
+    if (this.state.sigin) {
+      signInUser(emailValue, passValue);
+      // AuthState(user);
+    } else {
+      regUser(emailValue, passValue);
+      updateInUser(nameValue);
+      // AuthState(user);
+    }
   };
 
   // reset = () => {
@@ -84,63 +104,51 @@ class Modal extends PureComponent {
   // };
 
   render() {
+    let onAuthPage;
+
+    if (this.state.sigin) {
+      onAuthPage = (
+        <SinIn
+          email={this.state.email}
+          pass={this.state.pass}
+          onChange={this.handleChange}
+        ></SinIn>
+      );
+    } else {
+      onAuthPage = (
+        <SinUp
+          name={this.state.name}
+          email={this.state.email}
+          pass={this.state.pass}
+          onChange={this.handleChange}
+        ></SinUp>
+      );
+    }
+
     return createPortal(
       <div className={s.overlay} onClick={this.handleBackdropClick}>
         <div className={s.modal}>
           <form
             className={s.content}
             action="registration"
-            onClick={this.sendForm}
+            onSubmit={this.handleSubmit}
           >
-            <label className="">
-              <span className="">Name</span>
-              <input
-                type="text"
-                name="name"
-                id="singup-name"
-                required
-                className=""
-                value={this.state.name}
-                onChange={this.handleChange}
-              />
-            </label>
-            <label className="">
-              <span className="">Email</span>
-              <input
-                type="email"
-                name="email"
-                className=""
-                title="***@mail.com"
-                pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-                required
-                value={this.state.email}
-                onChange={this.handleChange}
-              />
-            </label>
-            <label className="">
-              <span className="">Password</span>
-              <input
-                type="password"
-                name="pass"
-                className=""
-                required
-                minlength="5"
-                value={this.state.pass}
-                onChange={this.handleChange}
-              />
-            </label>
-            <button type="submit" className="" aria-label="sign up">
-              Sign up
+            <button
+              type="button"
+              className={s.switchbtn}
+              onClick={this.changeModal}
+            >
+              {/* <closeIcon width="40" height="40" /> */}
+            </button>
+            <div>{onAuthPage}</div>
+            <button
+              type="button"
+              className={s.closebtn}
+              onClick={this.props.onClose}
+            >
+              {/* <closeIcon width="40" height="40" /> */}
             </button>
           </form>
-
-          <button
-            type="button"
-            className={s.button}
-            onClick={this.props.onClose}
-          >
-            {/* <closeIcon width="40" height="40" /> */}
-          </button>
         </div>
       </div>,
       modalRoot,

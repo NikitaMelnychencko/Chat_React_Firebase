@@ -30,7 +30,7 @@ class App extends PureComponent {
           <SendBox onSubmit={this.handleFormSubmit} />
         </Footer>
         {this.state.showModal && (
-          <Modal userdata={this.state.userdata} onClose={this.toggleModal} />
+          <Modal status={this.state.status} onClose={this.toggleModal} />
         )}
       </>
     );
