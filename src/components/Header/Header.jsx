@@ -18,7 +18,7 @@ class Header extends PureComponent {
   // }
 
   LogOut = () => {
-    // this.props.onlineCheck();
+    this.props.onlineCheck();
     signOutUser();
   };
 

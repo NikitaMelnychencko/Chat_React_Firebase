@@ -23,10 +23,14 @@ class App extends PureComponent {
   };
 
   onlineCheck() {
+    setTimeout(this.time(), 4000);
+  }
+
+  time = () => {
     this.setState(({ online }) => ({
       online: sessionStorage.getItem('userId') === null ? false : true,
     }));
-  }
+  };
 
   render() {
     // console.log(this.state.showModal);
