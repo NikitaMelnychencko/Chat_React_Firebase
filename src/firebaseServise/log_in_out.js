@@ -7,7 +7,7 @@ import {
   updateProfile,
 } from 'firebase/auth';
 
-import { auth, user, userId } from './Init';
+import { auth, user } from './Init';
 
 // const email = 'eosipopo@gmail.com';
 // const password = '12345679';
@@ -32,9 +32,10 @@ export function signInUser(email, password) {
     .then(userCredential => {
       //   swetchClass();
       //   addClass();
-      if (localStorage.getItem('idFilm') !== null) {
-        // updateButton(localStorage.getItem('idFilm'));
-      }
+      console.log(email);
+      // if (localStorage.getItem('idFilm') !== null) {
+      //   // updateButton(localStorage.getItem('idFilm'));
+      // }
       return userCredential.user;
     })
     .catch(error => {
@@ -53,7 +54,7 @@ export function updateInUser(name) {
 export async function signOutUser() {
   return await signOut(auth).then(() => {
     // Sign-out successful.
-    userId = null;
+    const userId = null;
     sessionStorage.removeItem('userId');
     // swetchClass();
   });

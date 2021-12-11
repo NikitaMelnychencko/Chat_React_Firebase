@@ -4,9 +4,9 @@ import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import Modal from 'components/Modal/Modal';
 import SendBox from 'components/SendBox/SendBox';
+import AuthForm from 'components/Modal/AuthForm';
 class App extends PureComponent {
   state = {
-    status: 'offline',
     showModal: false,
     message: null,
   };
@@ -22,15 +22,19 @@ class App extends PureComponent {
   };
 
   render() {
+    // console.log(this.state.showModal);
+
     return (
       <>
-        <Header status={this.state.status} onClick={this.toggleModal}></Header>
+        <Header onClick={this.toggleModal}></Header>
         <Main></Main>
         <Footer>
           <SendBox onSubmit={this.handleFormSubmit} />
         </Footer>
         {this.state.showModal && (
-          <Modal status={this.state.status} onClose={this.toggleModal} />
+          <Modal onClose={this.toggleModal}>
+            <AuthForm onClose={this.toggleModal}></AuthForm>
+          </Modal>
         )}
       </>
     );

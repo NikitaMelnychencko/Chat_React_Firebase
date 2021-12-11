@@ -41,14 +41,11 @@ const SinUp = ({ name, email, pass, onChange }) => {
           name="pass"
           className=""
           required
-          minlength="5"
+          minLength="5"
           value={pass}
           onChange={onChange}
         />
       </label>
-      <button type="submit" className="" aria-label="sign up">
-        Sign Up
-      </button>
     </>
   );
 };
