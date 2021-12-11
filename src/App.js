@@ -9,6 +9,7 @@ class App extends PureComponent {
   state = {
     showModal: false,
     message: null,
+    online: sessionStorage.getItem('userId') === null ? false : true,
   };
 
   toggleModal = () => {
@@ -26,7 +27,7 @@ class App extends PureComponent {
 
     return (
       <>
-        <Header onClick={this.toggleModal} />
+        <Header onClick={this.toggleModal} online={this.state.online} />
         <Main></Main>
         <Footer>
           <SendBox onSubmit={this.handleFormSubmit} />

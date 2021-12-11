@@ -50,8 +50,6 @@ class AuthForm extends PureComponent {
     this.props.onClose();
     if (this.state.sigin) {
       signInUser(emailValue, passValue);
-
-      AuthState(user);
     } else {
       regUser(emailValue, passValue);
       updateInUser(nameValue);

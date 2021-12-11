@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { PureComponent } from 'react';
 import s from './Modal.module.scss';
 
 const SinUp = ({ name, email, pass, onChange }) => {

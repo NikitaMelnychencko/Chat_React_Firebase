@@ -4,9 +4,12 @@ import { PureComponent } from 'react';
 import { signOutUser } from '../../firebaseServise/log_in_out';
 
 class Header extends PureComponent {
-  state = {
-    online: sessionStorage.getItem('userId') === null ? false : true,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      online: this.props.online,
+    };
+  }
 
   componentDidUpdate() {
     this.setState(({ online }) => ({
@@ -20,13 +23,6 @@ class Header extends PureComponent {
     }));
     signOutUser();
   };
-
-  // onlineCheck = () => {
-  //   (sessionStorage.getItem('userId') === null) ? false : true
-  //   this.setState(({ online }) => ({
-  //     online: (sessionStorage.getItem('userId') === null) ? false : true
-  //   }));
-  // }
 
   render() {
     const status = this.state.online ? 'online' : 'offline';
