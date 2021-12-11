@@ -8,6 +8,7 @@ import {
 } from 'firebase/auth';
 
 import { auth, user } from './Init';
+import App from 'App.js';
 
 // const email = 'eosipopo@gmail.com';
 // const password = '12345679';
@@ -31,6 +32,7 @@ export function signInUser(email, password) {
   console.log(email);
   return signInWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
+      // App.onlineCheck();
       //   swetchClass();
       //   addClass();
 
@@ -57,9 +59,13 @@ export async function signOutUser() {
     // Sign-out successful.
     const userId = null;
     sessionStorage.removeItem('userId');
+    // App.onlineCheck();
     // swetchClass();
   });
 }
+// const test = new App();
+// console.dir(App);
+// console.log(App.onlineCheck);
 
 // State User
 export async function AuthState(user) {

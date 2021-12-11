@@ -22,19 +22,32 @@ class App extends PureComponent {
     this.setState({ message });
   };
 
+  onlineCheck() {
+    this.setState(({ online }) => ({
+      online: sessionStorage.getItem('userId') === null ? false : true,
+    }));
+  }
+
   render() {
     // console.log(this.state.showModal);
 
     return (
       <>
-        <Header onClick={this.toggleModal} online={this.state.online} />
+        <Header
+          onClick={this.toggleModal}
+          online={this.state.online}
+          onlineCheck={this.onlineCheck}
+        />
         <Main></Main>
         <Footer>
           <SendBox onSubmit={this.handleFormSubmit} />
         </Footer>
         {this.state.showModal && (
           <Modal onClose={this.toggleModal}>
-            <AuthForm onClose={this.toggleModal} />
+            <AuthForm
+              onClose={this.toggleModal}
+              onlineCheck={this.onlineCheck}
+            />
           </Modal>
         )}
       </>

@@ -11,16 +11,14 @@ class Header extends PureComponent {
     };
   }
 
-  componentDidUpdate() {
-    this.setState(({ online }) => ({
-      online: sessionStorage.getItem('userId') === null ? false : true,
-    }));
-  }
+  // componentDidUpdate() {
+  //   this.setState(({ online }) => ({
+  //     online: sessionStorage.getItem('userId') === null ? false : true,
+  //   }));
+  // }
 
   LogOut = () => {
-    this.setState(({ online }) => ({
-      online: false,
-    }));
+    // this.props.onlineCheck();
     signOutUser();
   };
 
