@@ -36,6 +36,7 @@ class AuthForm extends PureComponent {
 
   handleSubmit = e => {
     e.preventDefault();
+    console.log(this.state.sigin);
     // this.onSubmit(this.state);
     // this.reset();
     //   const formData = new FormData(e.currentTarget);
@@ -46,13 +47,15 @@ class AuthForm extends PureComponent {
     const passValue = this.state.pass;
     const nameValue = this.state.name;
 
+    this.props.onClose();
     if (this.state.sigin) {
-      signInUser(this.state.email, this.state.pass);
-      // AuthState(user);
+      signInUser(emailValue, passValue);
+
+      AuthState(user);
     } else {
       regUser(emailValue, passValue);
       updateInUser(nameValue);
-      // AuthState(user);
+      AuthState(user);
     }
   };
 
@@ -67,11 +70,32 @@ class AuthForm extends PureComponent {
     // console.log(this.emailValue);
 
     return (
-      <form
-        className={s.content}
-        action="registration"
-        onSubmit={this.handleSubmit}
-      >
+      <>
+        <form
+          className={s.content}
+          action="registration"
+          onSubmit={this.handleSubmit}
+        >
+          <div>
+            {this.state.sigin ? (
+              <SinIn
+                email={this.state.email}
+                pass={this.state.pass}
+                onChange={this.handleChange}
+              />
+            ) : (
+              <SinUp
+                name={this.state.name}
+                email={this.state.email}
+                pass={this.state.pass}
+                onChange={this.handleChange}
+              />
+            )}
+          </div>
+          <button type="submit" className="" aria-label="submit-form">
+            {this.state.sigin ? 'Sign In' : 'Sign Up'}
+          </button>
+        </form>
         <button
           type="button"
           className={s.switchbtn}
@@ -79,38 +103,13 @@ class AuthForm extends PureComponent {
         >
           {this.state.sigin ? 'Sign Up' : 'Sign In'}
         </button>
-        <div>
-          {this.state.sigin ? (
-            <SinIn
-              email={this.state.email}
-              pass={this.state.pass}
-              onChange={this.handleChange}
-            ></SinIn>
-          ) : (
-            <SinUp
-              name={this.state.name}
-              email={this.state.email}
-              pass={this.state.pass}
-              onChange={this.handleChange}
-            ></SinUp>
-          )}
-        </div>
-        <button
-          type="submit"
-          className=""
-          aria-label="submit-form"
-          onClick={this.props.onClose}
-          onSubmit={this.handleSubmit}
-        >
-          {this.state.sigin ? 'Sign In' : 'Sign Up'}
-        </button>
-      </form>
+      </>
     );
   }
 }
 
-AuthForm.propTypes = {
-  children: PropTypes.node,
-};
+// AuthForm.propTypes = {
+//   children: PropTypes.node,
+// };
 
 export default AuthForm;

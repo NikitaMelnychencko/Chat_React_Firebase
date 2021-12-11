@@ -8,12 +8,25 @@ class Header extends PureComponent {
     online: sessionStorage.getItem('userId') === null ? false : true,
   };
 
+  componentDidUpdate() {
+    this.setState(({ online }) => ({
+      online: sessionStorage.getItem('userId') === null ? false : true,
+    }));
+  }
+
   LogOut = () => {
     this.setState(({ online }) => ({
       online: false,
     }));
     signOutUser();
   };
+
+  // onlineCheck = () => {
+  //   (sessionStorage.getItem('userId') === null) ? false : true
+  //   this.setState(({ online }) => ({
+  //     online: (sessionStorage.getItem('userId') === null) ? false : true
+  //   }));
+  // }
 
   render() {
     const status = this.state.online ? 'online' : 'offline';

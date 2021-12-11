@@ -4,7 +4,6 @@ import s from './Modal.module.scss';
 
 const SinIn = ({ email, pass, onChange }) => {
   // state = {
-
   // };
 
   return (

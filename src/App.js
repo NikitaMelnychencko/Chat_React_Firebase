@@ -26,14 +26,14 @@ class App extends PureComponent {
 
     return (
       <>
-        <Header onClick={this.toggleModal}></Header>
+        <Header onClick={this.toggleModal} />
         <Main></Main>
         <Footer>
           <SendBox onSubmit={this.handleFormSubmit} />
         </Footer>
         {this.state.showModal && (
           <Modal onClose={this.toggleModal}>
-            <AuthForm onClose={this.toggleModal}></AuthForm>
+            <AuthForm onClose={this.toggleModal} />
           </Modal>
         )}
       </>

@@ -35,4 +35,4 @@ export const auth = getAuth();
 export const user = auth.currentUser;
 export let userId = sessionStorage.getItem('userId');
 
-// console.log(auth);
+console.log(auth);

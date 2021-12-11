@@ -28,11 +28,12 @@ export function regUser(email, password) {
 
 // Aut User
 export function signInUser(email, password) {
+  console.log(email);
   return signInWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
       //   swetchClass();
       //   addClass();
-      console.log(email);
+
       // if (localStorage.getItem('idFilm') !== null) {
       //   // updateButton(localStorage.getItem('idFilm'));
       // }
