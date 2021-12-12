@@ -39,14 +39,14 @@ class AuthForm extends PureComponent {
 
     const emailValue = this.state.email;
     const passValue = this.state.pass;
-    const nameValue = this.state.name;
+    // const nameValue = this.state.name;
 
     this.props.onClose();
     if (this.state.sigin) {
       this.signInUser(emailValue, passValue);
     } else {
       this.regUser(emailValue, passValue);
-      this.updateInUser(nameValue);
+      // this.updateInUser(nameValue);
     }
   };
 
@@ -56,6 +56,8 @@ class AuthForm extends PureComponent {
       .then(userCredential => {
         //   swetchClass();
         //   addClass();
+        this.props.onlineCheck();
+        this.updateInUser(this.state.name);
         return userCredential.user.uid;
       })
       .catch(error => {
