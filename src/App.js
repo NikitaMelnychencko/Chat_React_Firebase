@@ -5,12 +5,26 @@ import Footer from 'components/Footer/Footer';
 import Modal from 'components/Modal/Modal';
 import SendBox from 'components/SendBox/SendBox';
 import AuthForm from 'components/Modal/AuthForm';
+import { auth, user } from './firebaseServise/Init';
+import { onAuthStateChanged } from 'firebase/auth';
 class App extends PureComponent {
   state = {
     showModal: false,
     message: null,
     online: sessionStorage.getItem('userId') === null ? false : true,
   };
+
+  componentDidUpdate() {
+    return onAuthStateChanged(auth, user => {
+      if (user) {
+        const userId = user.uid;
+        return sessionStorage.setItem('userId', `${userId}`);
+        // this.props.onlineCheck();
+      } else {
+        return;
+      }
+    });
+  }
 
   toggleModal = () => {
     this.setState(({ showModal }) => ({

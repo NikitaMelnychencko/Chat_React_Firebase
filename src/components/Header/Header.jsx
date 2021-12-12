@@ -16,7 +16,6 @@ class Header extends PureComponent {
 
   render() {
     const status = this.props.online ? 'online' : 'offline';
-
     // console.log(this.state.online)
     // console.log(status)
 

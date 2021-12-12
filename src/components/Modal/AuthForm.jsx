@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
 import { PureComponent } from 'react';
 import s from './Modal.module.scss';
-import { auth, user } from '../../firebaseServise/Init';
+import { auth } from '../../firebaseServise/Init';
 import SinIn from './SinIn';
 import SinUp from './SinUp';
 import {
   signInWithEmailAndPassword,
-  onAuthStateChanged,
   createUserWithEmailAndPassword,
   updateProfile,
 } from 'firebase/auth';
@@ -45,11 +44,9 @@ class AuthForm extends PureComponent {
     this.props.onClose();
     if (this.state.sigin) {
       this.signInUser(emailValue, passValue);
-      this.AuthState(user);
     } else {
       this.regUser(emailValue, passValue);
       this.updateInUser(nameValue);
-      this.AuthState(user);
     }
   };
 
@@ -88,21 +85,9 @@ class AuthForm extends PureComponent {
   }
 
   updateInUser(name) {
-    // console.log(auth.currentUser);
+    // console.log(name);
     return updateProfile(auth.currentUser, {
       displayName: `${name}`,
-    });
-  }
-
-  AuthState(user) {
-    return onAuthStateChanged(auth, user => {
-      if (user) {
-        const userId = user.uid;
-        return sessionStorage.setItem('userId', `${userId}`);
-        // this.props.onlineCheck();
-      } else {
-        return;
-      }
     });
   }
 
