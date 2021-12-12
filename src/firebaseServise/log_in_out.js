@@ -1,36 +1,55 @@
-// // Reg User
+// import {
+//   getAuth,
+//   signInWithEmailAndPassword,
+//   onAuthStateChanged,
+//   createUserWithEmailAndPassword,
+//   signOut,
+//   updateProfile,
+// } from 'firebase/auth';
+
+// import { auth, user } from './Init';
+// import App from 'App.js';
+
+// const email = 'eosipopo@gmail.com';
+// const password = '12345679';
+
+// Reg User
 // export function regUser(email, password) {
 //   return createUserWithEmailAndPassword(auth, email, password)
 //     .then(userCredential => {
-//       swetchClass();
-//       addClass();
+//       //   swetchClass();
+//       //   addClass();
 //       return userCredential.user.uid;
 //     })
 //     .catch(error => {
 //       const errorMessage = error.message;
-//       signUpErrorRender(errorMessage);
+//       //   signUpErrorRender(errorMessage);
 //     });
 // }
 
-// // Aut User
+// Aut User
 // export function signInUser(email, password) {
+//   console.log(email);
 //   return signInWithEmailAndPassword(auth, email, password)
 //     .then(userCredential => {
-//       swetchClass();
-//       addClass();
-//       if (localStorage.getItem('idFilm') !== null) {
-//         updateButton(localStorage.getItem('idFilm'));
-//       }
+//       // App.onlineCheck();
+//       //   swetchClass();
+//       //   addClass();
+
+//       // if (localStorage.getItem('idFilm') !== null) {
+//       //   // updateButton(localStorage.getItem('idFilm'));
+//       // }
 //       return userCredential.user;
 //     })
 //     .catch(error => {
 //       const errorMessage = error.message;
-//       signInErrorTextRender(errorMessage);
+//       //   signInErrorTextRender(errorMessage);
 //     });
 // }
 
-// export async function updateInUser(name) {
-//   return await updateProfile(auth.currentUser, {
+// export function updateInUser(name) {
+//   // console.log(auth.currentUser);
+//   return updateProfile(auth.currentUser, {
 //     displayName: `${name}`,
 //   });
 // }
@@ -38,39 +57,30 @@
 // export async function signOutUser() {
 //   return await signOut(auth).then(() => {
 //     // Sign-out successful.
-//     userId = null;
+//     const userId = null;
 //     sessionStorage.removeItem('userId');
-//     swetchClass();
+//     // App.onlineCheck();
+//     // swetchClass();
 //   });
 // }
+// const test = new App();
+// console.dir(App);
+// console.log(App.onlineCheck);
 
-// // State User
+// State User
 // export async function AuthState(user) {
 //   return await onAuthStateChanged(auth, user => {
 //     if (user) {
-//       userId = user.uid;
+//       const userId = user.uid;
 //       return sessionStorage.setItem('userId', `${userId}`);
 //     } else {
 //       return;
 //     }
 //   });
 // }
+
 // window.onload = function () {
-//   setTimeout(preloaderIsHided, 1500);
-//   setTimeout(preloaderDisable, 2000);
+//   //   setTimeout(preloaderIsHided, 1500);
+//   //   setTimeout(preloaderDisable, 2000);
 //   AuthState(user);
 // };
-// //getId
-// export async function getIdUser(userId, store, id) {
-//   return await get(child(dbRef, 'users/' + userId + '/' + store + '/' + id))
-//     .then(snapshot => {
-//       if (snapshot.exists()) {
-//         return snapshot.val();
-//       } else {
-//         return null;
-//       }
-//     })
-//     .catch(error => {
-//       console.error(error);
-//     });
-// }
