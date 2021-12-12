@@ -1,29 +1,21 @@
 import PropTypes from 'prop-types';
 import s from './Header.module.scss';
 import { PureComponent } from 'react';
-import { signOutUser } from '../../firebaseServise/log_in_out';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebaseServise/Init';
 
 class Header extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      online: this.props.online,
-    };
-  }
-
-  // componentDidUpdate() {
-  //   this.setState(({ online }) => ({
-  //     online: sessionStorage.getItem('userId') === null ? false : true,
-  //   }));
-  // }
-
   LogOut = () => {
-    this.props.onlineCheck();
-    signOutUser();
+    return signOut(auth).then(() => {
+      // Sign-out successful.
+      const userId = null;
+      sessionStorage.removeItem('userId');
+      this.props.onlineCheck();
+    });
   };
 
   render() {
-    const status = this.state.online ? 'online' : 'offline';
+    const status = this.props.online ? 'online' : 'offline';
 
     // console.log(this.state.online)
     // console.log(status)
@@ -34,7 +26,7 @@ class Header extends PureComponent {
           <div className={s[status]}></div>
 
           <div>
-            {this.state.online ? (
+            {this.props.online ? (
               <button
                 type="s.button"
                 className={s.button}

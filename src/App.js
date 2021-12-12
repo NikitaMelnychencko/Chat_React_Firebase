@@ -22,11 +22,7 @@ class App extends PureComponent {
     this.setState({ message });
   };
 
-  onlineCheck() {
-    setTimeout(this.time(), 4000);
-  }
-
-  time = () => {
+  onlineCheck = () => {
     this.setState(({ online }) => ({
       online: sessionStorage.getItem('userId') === null ? false : true,
     }));
