@@ -27,7 +27,7 @@ class Message extends PureComponent {
   render() {
     const { message } = this.state;
     return (
-      <ul className="">
+      <ul className={s.MassageList}>
         {message.map(elm => (
           <MessageItem key={nanoid()} message={elm} />
         ))}

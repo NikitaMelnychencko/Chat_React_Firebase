@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import s from './Massage.module.scss';
 const MessageItem = ({ message }) => {
   const data = new Date(message.time);
@@ -24,5 +25,8 @@ const MessageItem = ({ message }) => {
       </p>
     </li>
   );
+};
+MessageItem.propTypes = {
+  message: PropTypes.object.isRequired,
 };
 export default MessageItem;
