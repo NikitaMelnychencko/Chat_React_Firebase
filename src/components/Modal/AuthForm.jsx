@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { PureComponent } from 'react';
 import s from './Modal.module.scss';
 import { auth } from '../../firebaseServise/Init';
@@ -134,9 +133,5 @@ class AuthForm extends PureComponent {
     );
   }
 }
-
-// AuthForm.propTypes = {
-//   children: PropTypes.node,
-// };
 
 export default AuthForm;

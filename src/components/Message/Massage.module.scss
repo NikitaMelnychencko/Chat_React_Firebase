@@ -1,0 +1,23 @@
+.MassageList {
+  min-height: calc(100vh - 190px);
+}
+.Item {
+  display: flex;
+  flex-direction: column;
+  min-height: 70px;
+  width: 200px;
+  overflow: hidden;
+  border: 1px solid black;
+  border-radius: 15px;
+  & + .Item {
+    margin-top: 5px;
+  }
+}
+.UserName {
+  padding-right: auto;
+  color: #ffffff;
+}
+.UserMassage {
+  margin-left: auto;
+  margin-bottom: 10px;
+}

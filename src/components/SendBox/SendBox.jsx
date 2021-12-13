@@ -1,10 +1,12 @@
 import { PureComponent } from 'react';
 import { toast } from 'react-toastify';
+import { postUserData } from 'firebaseServise/data_featch';
+import { serverTimestamp } from 'firebase/database';
 import s from './SendBox.module.scss';
 
 class SendBox extends PureComponent {
   state = {
-    message: null,
+    message: '',
   };
 
   handleNameChange = e => {
@@ -16,7 +18,14 @@ class SendBox extends PureComponent {
       toast.warn('Input message!');
       return;
     }
-    this.props.onSubmit(this.state.message);
+
+    const dataUser = {
+      text: this.state.message,
+      userId: sessionStorage.getItem('userId'),
+      userName: sessionStorage.getItem('userName'),
+      time: serverTimestamp(),
+    };
+    postUserData(sessionStorage.getItem('userId'), dataUser);
     this.setState({ message: '' });
   };
   render() {

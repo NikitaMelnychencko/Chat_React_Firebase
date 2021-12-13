@@ -5,6 +5,7 @@ import Footer from 'components/Footer/Footer';
 import Modal from 'components/Modal/Modal';
 import SendBox from 'components/SendBox/SendBox';
 import AuthForm from 'components/Modal/AuthForm';
+import Message from 'components/Message/Message';
 import { auth, user } from './firebaseServise/Init';
 import { onAuthStateChanged } from 'firebase/auth';
 class App extends PureComponent {
@@ -14,10 +15,11 @@ class App extends PureComponent {
     online: sessionStorage.getItem('userId') === null ? false : true,
   };
 
-  componentDidUpdate() {
+  componentDidMount() {
     return onAuthStateChanged(auth, user => {
       if (user) {
         const userId = user.uid;
+        sessionStorage.setItem('userName', `${user.displayName}`);
         return sessionStorage.setItem('userId', `${userId}`);
         // this.props.onlineCheck();
       } else {
@@ -52,7 +54,9 @@ class App extends PureComponent {
           online={this.state.online}
           onlineCheck={this.onlineCheck}
         />
-        <Main></Main>
+        <Main>
+          <Message />
+        </Main>
         <Footer>
           <SendBox onSubmit={this.handleFormSubmit} />
         </Footer>
