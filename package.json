@@ -2,7 +2,7 @@
   "name": "chat_react_firebase",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://NikitaMelnychencko.github.io/chat_react_firebase",
+  "homepage": "https://NikitaMelnychencko.github.io/Chat_React_Firebase",
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^11.2.7",
