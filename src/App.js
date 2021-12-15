@@ -46,7 +46,6 @@ class App extends PureComponent {
 
   render() {
     // console.log(this.state.showModal);
-
     return (
       <>
         <Header
@@ -54,9 +53,7 @@ class App extends PureComponent {
           online={this.state.online}
           onlineCheck={this.onlineCheck}
         />
-        <Main>
-          <Message />
-        </Main>
+        <Main>{this.state.online && <Message />}</Main>
         <Footer>
           <SendBox onSubmit={this.handleFormSubmit} />
         </Footer>
