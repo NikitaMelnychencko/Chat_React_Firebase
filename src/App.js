@@ -58,13 +58,10 @@ class App extends PureComponent {
           {this.state.online ? (
             <Message />
           ) : (
-            <Modal onClose={this.toggleModal}>
-              <UserTest
-                onClick={this.toggleModal}
-                onClose={this.toggleModal}
-                onlineCheck={this.onlineCheck}
-              />
-            </Modal>
+            <UserTest
+              onClick={this.toggleModal}
+              onlineCheck={this.onlineCheck}
+            />
           )}
         </Main>
         <Footer>

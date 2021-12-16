@@ -23,12 +23,11 @@ class UserTest extends PureComponent {
     const passValue = '1234509876';
 
     this.signInUser(emailValue, passValue);
-    this.props.onClose();
   };
 
   render() {
     return (
-      <div>
+      <div className={s.choose}>
         <p>Please, choose variant</p>
         <button
           type="s.button"

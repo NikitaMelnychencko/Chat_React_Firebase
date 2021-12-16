@@ -1,0 +1,19 @@
+.choose {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+}
+
+.button {
+  width: 100px;
+
+  padding: 5px 5px;
+  background-color: inherit;
+  border-radius: 10px;
+  color: orange;
+
+  &:hover,
+  &:focus {
+    background-color: green;
+  }
+}
