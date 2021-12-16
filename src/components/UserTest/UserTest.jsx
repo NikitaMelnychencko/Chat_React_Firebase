@@ -29,7 +29,7 @@ class UserTest extends PureComponent {
   render() {
     return (
       <div>
-        <p>Please, chose variant</p>
+        <p>Please, choose variant</p>
         <button
           type="s.button"
           className={s.button}
