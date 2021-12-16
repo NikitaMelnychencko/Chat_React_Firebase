@@ -1,5 +1,5 @@
 import { PureComponent } from 'react';
-import s from './Modal.module.scss';
+import s from './AuthForm.module.scss';
 import { auth } from '../../firebaseServise/Init';
 import SinIn from './SinIn';
 import SinUp from './SinUp';

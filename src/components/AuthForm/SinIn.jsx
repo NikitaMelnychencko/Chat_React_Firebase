@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import s from './Modal.module.scss';
+import s from './AuthForm.module.scss';
 
 const SinIn = ({ email, pass, onChange }) => {
   // state = {
