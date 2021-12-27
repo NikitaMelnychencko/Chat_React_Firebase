@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import s from './Header.module.scss';
 import { PureComponent } from 'react';
 import { signOut } from 'firebase/auth';
@@ -31,7 +30,7 @@ class Header extends PureComponent {
                 className={s.button}
                 onClick={this.LogOut}
               >
-                <p>LogOut</p>
+                LogOut
               </button>
             ) : (
               <button
@@ -39,7 +38,7 @@ class Header extends PureComponent {
                 className={s.button}
                 onClick={this.props.onClick}
               >
-                <p>LogIn</p>
+                LogIn
               </button>
             )}
           </div>
@@ -48,9 +47,5 @@ class Header extends PureComponent {
     );
   }
 }
-
-Header.propTypes = {
-  children: PropTypes.node,
-};
 
 export default Header;

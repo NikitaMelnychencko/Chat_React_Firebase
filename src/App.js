@@ -4,8 +4,9 @@ import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import Modal from 'components/Modal/Modal';
 import SendBox from 'components/SendBox/SendBox';
-import AuthForm from 'components/Modal/AuthForm';
+import AuthForm from 'components/AuthForm/AuthForm';
 import Message from 'components/Message/Message';
+import UserTest from './components/UserTest/UserTest';
 import { auth, user } from './firebaseServise/Init';
 import { onAuthStateChanged } from 'firebase/auth';
 class App extends PureComponent {
@@ -53,7 +54,16 @@ class App extends PureComponent {
           online={this.state.online}
           onlineCheck={this.onlineCheck}
         />
-        <Main>{this.state.online && <Message />}</Main>
+        <Main>
+          {this.state.online ? (
+            <Message />
+          ) : (
+            <UserTest
+              onClick={this.toggleModal}
+              onlineCheck={this.onlineCheck}
+            />
+          )}
+        </Main>
         <Footer>
           <SendBox onSubmit={this.handleFormSubmit} />
         </Footer>
