@@ -15,7 +15,6 @@ class Message extends PureComponent {
     const starCountRef = ref(db, 'message');
     onValue(starCountRef, snapshot => {
       const data = snapshot.val();
-      console.log(data);
       const arr = [];
       for (let now in data) {
         arr.push(data[now].message);

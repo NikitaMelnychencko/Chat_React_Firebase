@@ -38,13 +38,15 @@ export async function postUserData(userId, message) {
   }
   const postListRef = ref(db, 'message');
   const newPostRef = push(postListRef);
+  console.log(newPostRef.key);
+  message.key = newPostRef.key;
   return await set(newPostRef, {
     message,
   });
   //return await set(ref(db, 'message/' + userId + idMess), message);
 }
 
-// //delete
-// export async function deleteData(userId, store, idFilm) {
-//   return await remove(ref(db, 'users/' + userId + '/' + store + '/' + idFilm));
-// }
+//delete
+export async function deleteData(idMessage) {
+  return await remove(ref(db, 'message' + '/' + idMessage));
+}

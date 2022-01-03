@@ -2,6 +2,7 @@ import { PureComponent } from 'react';
 import { toast } from 'react-toastify';
 import { postUserData } from 'firebaseServise/data_featch';
 import { serverTimestamp } from 'firebase/database';
+
 import s from './SendBox.module.scss';
 
 class SendBox extends PureComponent {

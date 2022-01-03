@@ -2,6 +2,7 @@
   min-height: calc(100vh - 190px);
 }
 .Item {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 70px;
@@ -20,4 +21,11 @@
 .UserMassage {
   margin-left: auto;
   margin-bottom: 10px;
+}
+.Menu {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  transform: rotate(90deg);
+  height: 22px;
 }
