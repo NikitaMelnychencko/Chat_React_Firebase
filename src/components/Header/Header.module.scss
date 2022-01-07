@@ -1,15 +1,15 @@
 .container {
-  margin-left: auto;
-  margin-right: auto;
+  // margin-left: auto;
+  // margin-right: auto;
   padding: 10px 10px;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .header {
   position: sticky;
-  background-color: #4e8193;
+  background-color: #b1b1b1;
 }
 
 .icon {
@@ -31,4 +31,15 @@
 .button {
   width: 60px;
   border-radius: 10px;
+
+  border-color: transparent;
+}
+
+.name {
+  margin-left: 10px;
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
 }

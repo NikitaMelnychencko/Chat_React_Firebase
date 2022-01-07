@@ -4,8 +4,8 @@ import s from './Footer.module.scss';
 const Footer = ({ children }) => {
   return (
     <footer>
-      <section className={s.Section}>
-        <div className={s.Container}>{children}</div>
+      <section className={s.section}>
+        <div className={s.container}>{children}</div>
       </section>
     </footer>
   );

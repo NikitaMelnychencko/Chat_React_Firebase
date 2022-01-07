@@ -1,6 +1,6 @@
 import { PureComponent } from 'react';
-import MessageItem from './Message_Item';
-import s from './Massage.module.scss';
+import MessageItem from './MessageItem';
+import s from './Message.module.scss';
 import { toast } from 'react-toastify';
 import { ref, onValue } from 'firebase/database';
 import { db } from 'firebaseServise/Init';
@@ -26,7 +26,7 @@ class Message extends PureComponent {
   render() {
     const { message } = this.state;
     return (
-      <ul className={s.MassageList}>
+      <ul className={s.messageList}>
         {message.map(elm => (
           <MessageItem key={nanoid()} message={elm} />
         ))}

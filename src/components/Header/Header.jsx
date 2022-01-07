@@ -9,16 +9,21 @@ class Header extends PureComponent {
       // Sign-out successful.
       const userId = null;
       sessionStorage.removeItem('userId');
+      sessionStorage.removeItem('userName');
       this.props.onlineCheck();
     });
   };
 
   render() {
-    const status = this.props.online ? 'online' : 'offline';
+    const state = this.props.online ? 'online' : 'offline';
+
     return (
       <header className={s.header}>
         <div className={s.container}>
-          <div className={s[status]}></div>
+          <div className={s.user}>
+            <div className={s[state]}></div>
+            <p className={s.name}>{sessionStorage.getItem('userName')}</p>
+          </div>
 
           <div>
             {this.props.online ? (

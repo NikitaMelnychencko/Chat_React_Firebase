@@ -1,11 +1,13 @@
 .Section {
   text-align: center;
 }
+
 .Container {
   margin-left: auto;
   margin-right: auto;
   padding: 20px 20px;
-  width: 750px;
+  // width: 750px;
+  height: 100%;
   overflow: hidden;
   background-color: #ffffff;
 }

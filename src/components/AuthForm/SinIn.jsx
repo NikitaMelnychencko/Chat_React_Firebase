@@ -12,7 +12,7 @@ const SinIn = ({ email, pass, onChange }) => {
         <input
           type="email"
           name="email"
-          className=""
+          className={s.input}
           title="***@mail.com"
           pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
           required
@@ -25,7 +25,7 @@ const SinIn = ({ email, pass, onChange }) => {
         <input
           type="password"
           name="pass"
-          className=""
+          className={s.input}
           required
           minLength="5"
           value={pass}

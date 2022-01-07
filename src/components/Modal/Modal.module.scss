@@ -16,7 +16,9 @@
   width: 200px;
   height: 200px;
   padding: 20px;
-  background-color: honeydew;
+  background-color: rgb(255, 255, 255);
+
+  border-radius: 10px;
 }
 
 .button {
@@ -39,4 +41,5 @@
   top: 1%;
 
   background-color: rgb(128, 0, 0);
+  border-radius: 10px;
 }

@@ -1,17 +1,19 @@
-.Form {
+.form {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   align-content: center;
 }
-.Input {
+.input {
   width: 100%;
   height: 50px;
   padding: 5px 10px;
   resize: none;
+
+  border-radius: 10px;
 }
-.Button {
+.button {
   padding: 5px 20px;
   margin-left: 10px;
   background-color: rgba(0, 81, 255, 0.637);
@@ -20,4 +22,7 @@
     background-color: rgba(0, 0, 0, 0.897);
     color: white;
   }
+
+  border-radius: 10px;
+  border-color: transparent;
 }

@@ -1,14 +1,16 @@
 .button {
   position: absolute;
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 80px;
+  height: 25px;
+  margin-top: 10px;
 
-  margin-left: auto;
   padding: 5px 10px;
-  background-color: inherit;
-  border: inherit;
+
   color: orange;
+
+  border-radius: 10px;
+  border: transparent;
 }
 
 .switchbtn {
@@ -25,4 +27,11 @@
   border-radius: 4px;
 
   background-color: rgb(74, 74, 74);
+}
+
+.input {
+  padding: 5px 5px;
+  resize: none;
+
+  border-radius: 10px;
 }

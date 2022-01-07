@@ -118,7 +118,7 @@ class AuthForm extends PureComponent {
               />
             )}
           </div>
-          <button type="submit" className="" aria-label="submit-form">
+          <button type="submit" className={s.button} aria-label="submit-form">
             {this.state.sigin ? 'Sign In' : 'Sign Up'}
           </button>
         </form>

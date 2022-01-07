@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import s from './Massage.module.scss';
+import s from './Message.module.scss';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -30,8 +30,8 @@ const MessageItem = ({ message }) => {
     backColor = 'blue';
   }
   return (
-    <li className={s.Item} style={{ marginLeft: curentUser }}>
-      <div className={s.Menu}>
+    <li className={s.item} style={{ marginLeft: curentUser }}>
+      <div className={s.menu}>
         <IconButton
           aria-label="more"
           id="long-button"
@@ -71,11 +71,11 @@ const MessageItem = ({ message }) => {
           ))}
         </Menu>
       </div>
-      <h3 className={s.UserName} style={{ background: backColor }}>
+      <h3 className={s.userName} style={{ background: backColor }}>
         {message.userName}
       </h3>
 
-      <p className={s.UserMassage}>{message.text}</p>
+      <p className={s.userMassage}>{message.text}</p>
       <p>
         {data.toLocaleDateString()} {data.toLocaleTimeString()}
       </p>

@@ -15,7 +15,7 @@ const SinUp = ({ name, email, pass, onChange }) => {
           name="name"
           id="singup-name"
           required
-          className=""
+          className={s.input}
           value={name}
           onChange={onChange}
         />
@@ -25,7 +25,7 @@ const SinUp = ({ name, email, pass, onChange }) => {
         <input
           type="email"
           name="email"
-          className=""
+          className={s.input}
           title="***@mail.com"
           pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
           required
@@ -38,7 +38,7 @@ const SinUp = ({ name, email, pass, onChange }) => {
         <input
           type="password"
           name="pass"
-          className=""
+          className={s.input}
           required
           minLength="5"
           value={pass}

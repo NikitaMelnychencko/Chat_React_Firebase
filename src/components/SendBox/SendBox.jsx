@@ -31,16 +31,16 @@ class SendBox extends PureComponent {
   };
   render() {
     return (
-      <form className={s.Form} onSubmit={this.handleSubmit}>
+      <form className={s.form} onSubmit={this.handleSubmit}>
         <textarea
           type="text"
           autoComplete="off"
           autoFocus
-          className={s.Input}
+          className={s.input}
           value={this.state.message}
           onChange={this.handleNameChange}
         />
-        <button type="submit" className={s.Button}>
+        <button type="submit" className={s.button}>
           {' '}
           Send
         </button>

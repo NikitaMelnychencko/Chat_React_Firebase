@@ -1,7 +1,7 @@
-.MassageList {
+.messageList {
   min-height: calc(100vh - 190px);
 }
-.Item {
+.item {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -14,15 +14,15 @@
     margin-top: 5px;
   }
 }
-.UserName {
+.userName {
   padding-right: auto;
   color: #ffffff;
 }
-.UserMassage {
+.userMessage {
   margin-left: auto;
   margin-bottom: 10px;
 }
-.Menu {
+.menu {
   position: absolute;
   top: 0;
   left: 10px;
